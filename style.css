@@ -101,9 +101,9 @@ box-shadow: 0 4px 10px rgba(58, 45, 36, 0.15);
 #menu{
 width:100%;
 height: auto;
-background-color: black;
+background-color: #fbf8f2;
 padding-top:100px;
-color:white;
+padding-bottom: 100px;
 }
 
 #boxp{
@@ -137,13 +137,13 @@ grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
 }
 
 .s1{
-height:600px;
-background-color: pink;
+height:400px;
+background-color: white;
 border-radius: 20px;
 }
 
 img{
-height:40%;
+height:60%;
 width:100%;
 border-top-left-radius:20px;
 border-top-right-radius:20px;
@@ -151,7 +151,54 @@ border-top-right-radius:20px;
 
 .spara{
 width:85%;
-height:324px;
+height:130px;
 margin:20px auto;
-background-color: purple;
+}
+
+.res{
+color: #c8a27a;
+font-size: 14px;
+font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.name{
+font-family: "Cinzel Decorative", serif;
+  font-weight: 400;
+  font-style: normal;
+font-size: 20px;
+margin: 5px 0 20px 0;
+}
+
+hr{
+border: none;
+height: 2px;
+background-color: grey;
+}
+
+.pr{
+height:60px;
+width: 100%;
+display: flex;
+gap:150px;
+justify-content: center;
+align-items: center;
+}
+
+.pr p{
+font-family: "Cinzel Decorative", serif;
+  font-weight: 400;
+  font-style: normal;
+font-size: 20px;
+}
+
+.pr button{
+height: 30px;
+width:120px;
+border-radius: 6px;
+border:none;
+background-color: #2a1d15;
+color:#fbf8f2;
 }
