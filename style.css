@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Cinzel+Decorative:wght@400;700;900&family=Fleur+De+Leah&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Cinzel+Decorative:wght@400;700;900&family=Fleur+De+Leah&family=Noto+Sans+Indic+Siyaq+Numbers&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 
 *{
@@ -39,9 +39,11 @@ align-items: center;
 
 #rightb p{
 margin:30px;
-font-size: 20px;
-font-weight: light;
-color: #2a1d15;
+font-size: 17px;
+color: #6f4e37;
+font-family: "Noto Sans Indic Siyaq Numbers", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #hero{
@@ -106,12 +108,12 @@ padding-top:100px;
 padding-bottom: 100px;
 }
 
-#boxp{
+.boxp{
 width:400px;
 margin: 0 0 64px 150px;
 }
 
-#mp1{
+.mp1{
 color: #c8a27a;
 font-size: 13.5px;
 font-family: "Source Code Pro", monospace;
@@ -121,14 +123,14 @@ font-family: "Source Code Pro", monospace;
 margin-bottom:10px;
 }
 
-#mp2{
+.mp2{
 font-size:40px;
 font-family: "Cinzel Decorative", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-#slid{
+.slid{
 margin: auto;
 width:80%;
 display:grid;
@@ -140,6 +142,7 @@ grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
 height:400px;
 background-color: white;
 border-radius: 20px;
+overflow:hidden;
 }
 
 img{
@@ -147,6 +150,16 @@ height:60%;
 width:100%;
 border-top-left-radius:20px;
 border-top-right-radius:20px;
+transition: transform 0.5s, box-shadow 1s;
+}
+
+.s1:hover >img{
+transform:scale(1.1);
+}
+
+.s1:hover{
+box-shadow: 10px 10px 34px rgba(0,0,0,0.15);
+
 }
 
 .spara{
@@ -201,4 +214,30 @@ border-radius: 6px;
 border:none;
 background-color: #2a1d15;
 color:#fbf8f2;
+}
+
+#album{
+width:100%;
+height:auto;
+padding: 100px 0 100px 0;
+background-color: #f1e8dc;
+}
+
+#album > .boxp{
+width:500px;
+}
+
+#album img{
+height:85%;
+}
+
+.spara1{
+height:20px;
+width:85%;
+margin:5px auto;
+}
+
+
+#menu .s1{
+height:600px;
 }
