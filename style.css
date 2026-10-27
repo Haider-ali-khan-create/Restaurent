@@ -13,6 +13,8 @@ display: flex;
 background-color: #fbf8f2;
 border-bottom: 1px solid #c8a27a;
 position: fixed;
+z-index: 100;
+animation: slideDown 0.7s ease both;
 }
 
 #leftb{
@@ -25,7 +27,16 @@ font-size: 50px;
 display:flex;
 padding-left:120px;
 align-items:center;
+}
 
+#leftb p{
+  cursor: pointer;
+  transform-origin: left center;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+#leftb p:hover{
+  color: #c8a27a;
+  transform: scale(1.05);
 }
 
 #rightb{
@@ -37,14 +48,32 @@ margin-right:64px;
 align-items: center;
 }
 
-#rightb p{
+#rightb a{
 margin:30px;
 font-size: 17px;
 color: #6f4e37;
 font-family: "Noto Sans Indic Siyaq Numbers", sans-serif;
   font-weight: 400;
   font-style: normal;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
+
+#rightb a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: #c8a27a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+#rightb a:hover{ color: #c8a27a; }
+#rightb a:hover::after{ transform: scaleX(1); }
 
 #hero{
 width:100%;
@@ -69,6 +98,7 @@ font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  animation: fadeUp 0.9s ease 0.2s both;
 }
 
 #p2{
@@ -78,6 +108,7 @@ color: #fbf8f2;
 font-family: "Fleur De Leah", cursive;
 font-weight: 400;
 font-style: normal;
+animation: fadeUp 0.9s ease 0.4s both;
 }
 
 #btn1{
@@ -93,6 +124,7 @@ font-family: "Aldrich", sans-serif;
   font-weight: 400;
   font-style: normal;
 transition: all 0.2s ease-out;
+ animation: fadeUp 0.9s ease 0.6s both;
 }
 
 #btn1:hover{
@@ -135,7 +167,7 @@ margin: auto;
 width:80%;
 display:grid;
 gap:30px;
-grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+grid-template-columns: repeat(auto-fit, minmax(min(280px,100%),1fr));
 }
 
 .s1{
@@ -143,17 +175,27 @@ height:400px;
 background-color: white;
 border-radius: 20px;
 overflow:hidden;
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.imgbox{
+height:60%;
+width:100%;
+overflow:hidden;
+isolation:isolate;
+border-top-left-radius:20px;
+border-top-right-radius:20px;
 }
 
 img{
-height:60%;
+display:block;
+height:100%;
 width:100%;
-border-top-left-radius:20px;
-border-top-right-radius:20px;
-transition: transform 0.5s, box-shadow 1s;
+object-fit:cover;
+transition: transform 0.6s ease;
 }
 
-.s1:hover >img{
+.s1:hover img{
 transform:scale(1.1);
 }
 
@@ -227,7 +269,7 @@ background-color: #f1e8dc;
 width:500px;
 }
 
-#album img{
+#album .imgbox{
 height:80%;
 }
 
@@ -372,3 +414,140 @@ a{
 li, .ee p,a{
   color: rgb(255, 255, 255,0.5);
 }
+
+
+@keyframes fadeUp{
+  from{ opacity:0; translate:0 30px; }
+  to{ opacity:1; translate:0 0; }
+}
+
+@keyframes slideDown{
+  from{ opacity:0; translate:0 -100%; }
+  to{ opacity:1; translate:0 0; }
+}
+
+@keyframes reveal{
+  from{ opacity:0; translate:0 40px; }
+  to{ opacity:1; translate:0 0; }
+}
+
+
+
+#btn1{ cursor: pointer; }
+#btn1:hover{ transform: translateY(-3px); }
+#btn1:active{ transform: translateY(0) scale(0.97); }
+
+
+.s1:hover{ transform: translateY(-8px); }
+.name{ transition: color 0.4s ease; }
+.s1:hover .name{ color: #c8a27a; }
+
+.pr button{
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pr button:hover{
+  background-color: #c8a27a;
+  color: #2a1d15;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(42, 29, 21, 0.25);
+}
+.pr button:active{ transform: translateY(0); }
+
+
+#hours > .slid{ transition: box-shadow 0.4s ease; }
+#hours > .slid:hover{ box-shadow: 0 10px 34px rgba(0,0,0,0.1); }
+.week > p{ transition: color 0.3s ease, transform 0.3s ease; }
+.week:hover > p{ color: #c8a27a; }
+.week:hover > p:first-child{ transform: translateX(6px); }
+
+a{ transition: color 0.3s ease, transform 0.3s ease; }
+a:hover{ color: #c8a27a; }
+.eb3 a{ display: inline-block; }
+.eb3 a:hover{ transform: translateX(4px); }
+
+@media (max-width: 1600px){
+  .pr{ gap: 20px; justify-content: space-between; }
+}
+
+
+@media (max-width: 1024px){
+  #leftb{ padding-left: 5%; }
+  #rightb{ margin-right: 3%; }
+  #rightb a{ margin: 20px; }
+
+  #content{ width: 70%; }
+  #p2{ font-size: clamp(52px, 12vw, 120px); }
+
+  .boxp, #album > .boxp{
+    width: auto;
+    max-width: 520px;
+    margin: 0 5% 48px 10%;
+  }
+  .mp2{ font-size: 34px; }
+  .slid{ width: 88%; }
+}
+
+@media (max-width: 900px){
+  #bar{
+    flex-direction: column;
+    height: auto;
+    padding: 8px 0 4px;
+  }
+  #leftb{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    padding-left: 0;
+    font-size: 42px;
+  }
+  #rightb{
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    justify-content: center;
+  }
+  #rightb a{
+    margin: 8px 14px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px){
+  #hero{ height: auto; min-height: 100vh; }
+  #content{
+    width: 90%;
+    height: auto;
+    padding-top: 170px;
+    padding-bottom: 70px;
+  }
+  #p1{ font-size: 12px; line-height: 1.7; }
+  #p2{ margin-top: 20px; }
+  #btn1{ margin-top: 36px; }
+
+  #menu{ padding-top: 70px; padding-bottom: 70px; }
+  #album{ padding: 70px 0; }
+  #hours{ padding: 60px 0; }
+
+  .boxp, #album > .boxp{
+    max-width: none;
+    margin: 0 6% 36px 6%;
+  }
+  .mp1{ font-size: 12px; line-height: 1.5; }
+  .mp2{ font-size: 28px; line-height: 1.3; }
+
+  .s1, #album .s1{ height: auto; }
+  .s1 .imgbox{ height: 240px; }
+  #album .imgbox{ height: 300px; }
+  .spara{ height: auto; margin: 20px auto 10px; padding-bottom: 10px; }
+  .spara1{ height: auto; padding-bottom: 6px; }
+
+  #inb{ height: auto; padding-bottom: 20px; }
+  #inw{ height: auto; margin: 20px 0 10px 0; }
+
+  #end{ padding: 50px 0; }
+  #ebox{ flex-direction: column; gap: 28px; }
+  .eb{ width: 88%; }
+  .eb > hr{ margin: 35px 0 25px 0; }
+}
+
